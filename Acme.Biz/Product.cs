@@ -12,6 +12,8 @@ namespace Acme.Biz
     /// </summary>
     public class Product
     {
+        public const double InchesPerMeter = 39.37; 
+
         public Product()
         {
             Console.WriteLine("Product instance created");
