@@ -101,5 +101,21 @@ namespace Acme.Biz.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void ProductName_Format()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            currentProduct.ProductName = "  Steel Hammer  ";
+
+            var expected = "Steel Hammer";
+
+            //Act
+            var actual = currentProduct.ProductName;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }    
 }
