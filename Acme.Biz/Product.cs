@@ -30,6 +30,14 @@ namespace Acme.Biz
                                 ProductName);
         }
 
+        private DateTime? availabilityDate;
+
+        public DateTime? AvailabilityDate
+        {
+            get { return availabilityDate; }
+            set { availabilityDate = value; }
+        }
+
         private string productName;
 
         public string ProductName       
@@ -84,7 +92,9 @@ namespace Acme.Biz
 
             return "Hello " + ProductName +
                     " (" + ProductId + "): " +
-                    Description;
+                    Description +
+                    " Available on: " +
+                    AvailabilityDate?.ToShortDateString();
         }       
     }
 }
