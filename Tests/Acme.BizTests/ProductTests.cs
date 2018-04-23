@@ -130,7 +130,7 @@ namespace Acme.Biz.Tests
 
             //Act
             var actual = currentProduct.ProductName;
-            var actualMessage = currentProduct.validationMessage;
+            var actualMessage = currentProduct.ValidationMessage;
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -148,7 +148,7 @@ namespace Acme.Biz.Tests
 
             //Act
             var actual = currentProduct.ProductName;
-            var actualMessage = currentProduct.validationMessage;
+            var actualMessage = currentProduct.ValidationMessage;
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -167,11 +167,71 @@ namespace Acme.Biz.Tests
             
             //Act
             var actual = currentProduct.ProductName;
-            var actualMessage = currentProduct.validationMessage;
+            var actualMessage = currentProduct.ValidationMessage;
             
             //Assert
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(expectedMessage, actualMessage);
+        }
+
+        [TestMethod()]
+        public void Category_DefaultValue()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            var expected = "Tools";
+            
+            //Act
+            var actual = currentProduct.Category;
+            
+            //Assert
+            Assert.AreEqual(expected, actual);            
+        }
+
+        [TestMethod()]
+        public void Category_NewValue()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            currentProduct.Category = "Hardware";
+
+            var expected = "Hardware";
+
+            //Act
+            var actual = currentProduct.Category;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void SequenceNumber_DefaultValue()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            var expected = 1;
+
+            //Act
+            var actual = currentProduct.SequenceNumber;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void SequenceNumber_NewValue()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            currentProduct.SequenceNumber = 5;
+
+            var expected = 5;
+
+            //Act
+            var actual = currentProduct.SequenceNumber;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
         }
     }    
 }

@@ -20,11 +20,12 @@ namespace Acme.Biz
             Console.WriteLine("Product instance created");
             //this.ProductVendor = new Vendor();
             this.MinimumPrice = .96m;
+            this.Category = "Tools";
         }
 
         public Product(int productId,
-                        string productName,
-                        string description) : this()
+                       string productName,
+                       string description) : this()
         {
             this.ProductId = productId;
             this.ProductName = productName;
@@ -35,7 +36,7 @@ namespace Acme.Biz
             }
 
             Console.WriteLine("Product has an instance name: " +
-                                ProductName);
+                               ProductName);
         }
 
         private DateTime? availabilityDate;
@@ -55,16 +56,15 @@ namespace Acme.Biz
                 var formattedValue = productName?.Trim();
                 return formattedValue;
             }
-
             set
             {
                 if (value.Length < 3)
                 {
-                    validationMessage = "Product name must be at least 3 characters";
+                    ValidationMessage = "Product name must be at least 3 characters";
                 }
                 else if (value.Length > 20)
                 {
-                    validationMessage = "Product name cannot be more than 20 characters";
+                    ValidationMessage = "Product name cannot be more than 20 characters";
                 }
                 else
                 {
@@ -104,9 +104,12 @@ namespace Acme.Biz
                 return productVendor;
             }
             set { productVendor = value; }                
-    }
+        }
 
-        public string validationMessage { get; private set; }
+        public string Category { get; set; }
+        public int SequenceNumber { get; set; } = 1;
+
+        public string ValidationMessage { get; private set; }
 
         public string SayHello()
         {
