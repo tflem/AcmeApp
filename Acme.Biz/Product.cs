@@ -47,9 +47,7 @@ namespace Acme.Biz
             set { availabilityDate = value; }
         }
 
-        private int myVar;
-
-        public decimal Cost { get; set; }
+       public decimal Cost { get; set; }
         
         private string productName;
 
@@ -143,9 +141,7 @@ namespace Acme.Biz
                     AvailabilityDate?.ToShortDateString();
         }
 
-        public override string ToString()
-        {
-            return this.ProductName + " (" + this.productId + ")";
-        }
+        public override string ToString() =>
+            this.ProductName + " (" + this.productId + ")";
     }
 }
