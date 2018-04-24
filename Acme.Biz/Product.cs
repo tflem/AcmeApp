@@ -47,6 +47,10 @@ namespace Acme.Biz
             set { availabilityDate = value; }
         }
 
+        private int myVar;
+
+        public decimal Cost { get; set; }
+        
         private string productName;
 
         public string ProductName       
@@ -112,6 +116,14 @@ namespace Acme.Biz
         public string ProductCode => this.Category + "-" + this.SequenceNumber;
 
         public string ValidationMessage { get; private set; }
+
+        /// <summary>
+        /// Calculates the suggested retail price
+        /// </summary>
+        /// <param name="markupPercent">Percent used to mark up cost.</param>
+        /// <returns></returns>
+        public decimal CalculateSuggestedPrice(decimal markupPercent) =>
+            this.Cost + (this.Cost * markupPercent / 100);        
 
         public string SayHello()
         {

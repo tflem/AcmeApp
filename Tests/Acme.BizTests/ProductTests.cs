@@ -69,7 +69,7 @@ namespace Acme.Biz.Tests
 
             //Act
             var actual = 2 * Product.InchesPerMeter;
-            
+
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -164,11 +164,11 @@ namespace Acme.Biz.Tests
 
             string expected = "Rubber Mallet";
             string expectedMessage = null;
-            
+
             //Act
             var actual = currentProduct.ProductName;
             var actualMessage = currentProduct.ValidationMessage;
-            
+
             //Assert
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(expectedMessage, actualMessage);
@@ -180,12 +180,12 @@ namespace Acme.Biz.Tests
             //Arrange
             var currentProduct = new Product();
             var expected = "Tools";
-            
+
             //Act
             var actual = currentProduct.Category;
-            
+
             //Assert
-            Assert.AreEqual(expected, actual);            
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod()]
@@ -239,7 +239,7 @@ namespace Acme.Biz.Tests
         {
             //Arrange
             var currentProduct = new Product();
-            
+
             var expected = "Tools-1";
 
             //Act
@@ -248,5 +248,20 @@ namespace Acme.Biz.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
-    }    
+
+        [TestMethod()]
+        public void CalculateSuggestedPriceTest()
+        {
+            // Arrange
+            var currentProduct = new Product();
+            currentProduct.Cost = 50m;
+            var expected = 55m;
+
+            // Act
+            var actual = currentProduct.CalculateSuggestedPrice(10m);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+    }
 }
