@@ -126,12 +126,12 @@ namespace Acme.Biz.Tests
         }
 
         [TestMethod()]
-        public void PlaceOrderTest1()
+        public void PlaceOrderTest_WithAddress()
         {
             // Arrange
             var vendor = new Vendor();
             var product = new Product(1, "Saw", "");
-            var expected = new OperationResult(true, "Test with Address");
+            var expected = new OperationResult(true, "Test With Address");
 
             // Act
             var actual = vendor.PlaceOrder(product, 12, true, false);
