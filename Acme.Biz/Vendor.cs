@@ -100,5 +100,11 @@ namespace Acme.Biz
                                                         this.Email);
             return confirmation;
         }
+
+        public override string ToString()
+        {
+            string vendorInfo = "Vendor: " + this.CompanyName;
+            return vendorInfo;
+        }
     }
 }
