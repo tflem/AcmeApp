@@ -111,7 +111,9 @@ namespace Acme.Biz
         internal string Category { get; set; }
         public int SequenceNumber { get; set; } = 1;
 
-        public string ProductCode => this.Category + "-" + this.SequenceNumber;
+        public string ProductCode => String.Format("{0}-{1:0000}",
+                                                   this.Category,
+                                                   this.SequenceNumber);
 
         public string ValidationMessage { get; private set; }
 
