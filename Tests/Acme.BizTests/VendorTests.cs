@@ -169,7 +169,7 @@ namespace Acme.Biz.Tests
             // Arrange
             var vendor = new Vendor();
             vendor.VendorId = 1;
-            vendor.CompanyName = "The Krusty Krab";
+            vendor.CompanyName = "The Krusty Krab   ";
             var expected = "Vendor: The Krusty Krab";
 
             // Act

@@ -104,7 +104,10 @@ namespace Acme.Biz
         public override string ToString()
         {
             string vendorInfo = "Vendor: " + this.CompanyName;
-            return vendorInfo;
+
+            string result = vendorInfo?.Trim();
+                
+            return result;
         }
     }
 }
